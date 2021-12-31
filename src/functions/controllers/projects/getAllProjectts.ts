@@ -6,12 +6,10 @@ class getAllProjectsController {
   async handle(req: Request, res: Response) {
     const service = new getAllProjectsService
 
-    try {
-
-      const result = await service.execute()
+    const result = await service.execute()
 
       if(!result.length) {
-        return res.status(404).json({
+        return res.status(200).json({
           success: false,
           data: []
         })
@@ -21,12 +19,6 @@ class getAllProjectsController {
           data: result
         })
       }
-    } catch {
-      return res.status(502).json({
-        success: false,
-        data: "Algum dado foi inserido errado, Tente novamente!"
-      })
-    }
   }
 }
 

@@ -28,3 +28,12 @@ model Earns {
   type            String
   created_at      DateTime @default(now())
 }
+
+model Users {
+  id              String @id @default(uuid())
+  username        String
+  password        String
+  avatar_url      String
+  role            Int
+  created_at      DateTime @default(now())
+}
