@@ -1,11 +1,10 @@
 import prismaClient from "../../../core/prisma";
 
 class postOneEarnService {
-  async execute(quantity: number, id: number) {
+  async execute(quantity: number) {
     if (quantity < 0) {
       const earn = prismaClient.earns.create({
         data: {
-          typeid: id,
           quantity,
           type: "negative"
         }
@@ -15,7 +14,6 @@ class postOneEarnService {
     } else if (quantity > 0) {
       const earn = prismaClient.earns.create({
         data: {
-          typeid: id,
           quantity,
           type: "positive"
         }

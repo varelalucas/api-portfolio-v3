@@ -6,7 +6,7 @@ class postOneEarnController {
   async handle(req: Request, res: Response) {
     const service = new postOneEarnService
 
-    const { quantity, id } = req.body
+    const { quantity } = req.body
 
     if (!quantity) {
       return res.status(400).json({
@@ -15,7 +15,7 @@ class postOneEarnController {
       })
     }
 
-    const result = await service.execute(quantity, id)
+    const result = await service.execute(quantity)
 
     return res.status(200).json({
       success: true,

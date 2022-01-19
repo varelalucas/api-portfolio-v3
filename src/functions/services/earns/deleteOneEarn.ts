@@ -4,7 +4,7 @@ class deleteOneEarnService {
   async execute(id: number) {
     const project = await prismaClient.earns.deleteMany({
       where: {
-        typeid: id
+        id: id
       }
     })
 
